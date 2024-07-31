@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Competitor Price Monitoring</title>
+</head>
+<body>
+  <h1>Competitor Price Monitoring</h1>
+  <input type="text" id="product" placeholder="Enter product name">
+  <button onclick="getPrices()">Get Prices</button>
+  <div id="prices"></div>
+
+  <script>
+    function getPrices() {
+      var product = document.getElementById('product').value;
+      google.script.run.withSuccessHandler(displayPrices).getPrices(product);
+    }
+
+    function displayPrices(data) {
+      document.getElementById('prices').innerHTML = data;
+    }
+  </script>
+</body>
+</html>
